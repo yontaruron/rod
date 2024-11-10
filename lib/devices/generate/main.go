@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/utils"
 	"github.com/ysmood/gson"
 )
 

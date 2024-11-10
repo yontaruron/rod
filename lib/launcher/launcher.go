@@ -4,7 +4,6 @@ package launcher
 import (
 	"context"
 	"crypto"
-	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -14,10 +13,9 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/go-rod/rod/lib/defaults"
-	"github.com/go-rod/rod/lib/launcher/flags"
-	"github.com/go-rod/rod/lib/utils"
-	"github.com/ysmood/leakless"
+	"github.com/yontaruron/rod/lib/defaults"
+	"github.com/yontaruron/rod/lib/launcher/flags"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 // DefaultUserDataDirPrefix ...
@@ -269,7 +267,7 @@ func (l *Launcher) AlwaysOpenPDFExternally() *Launcher {
 
 // Leakless switch. If enabled, the browser will be force killed after the Go process exits.
 // The doc of leakless: https://github.com/ysmood/leakless.
-func (l *Launcher) Leakless(enable bool) *Launcher {
+func (l *Launcher) Leakless(enable bool) *Launcher { // @TODO redundant method
 	if enable {
 		return l.Set(flags.Leakless)
 	}
@@ -421,22 +419,16 @@ func (l *Launcher) Launch() (string, error) {
 
 	l.setupUserPreferences()
 
-	var ll *leakless.Launcher
 	var cmd *exec.Cmd
 
 	args := l.FormatArgs()
 
-	if l.Has(flags.Leakless) && leakless.Support() {
-		ll = leakless.New()
-		cmd = ll.Command(bin, args...)
-	} else {
-		port := l.Get(flags.RemoteDebuggingPort)
-		u, err := ResolveURL(port)
-		if err == nil {
-			return u, nil
-		}
-		cmd = exec.Command(bin, args...)
+	port := l.Get(flags.RemoteDebuggingPort)
+	u, err := ResolveURL(port)
+	if err == nil {
+		return u, nil
 	}
+	cmd = exec.Command(bin, args...)
 
 	l.setupCmd(cmd)
 
@@ -445,21 +437,14 @@ func (l *Launcher) Launch() (string, error) {
 		return "", err
 	}
 
-	if ll == nil {
-		l.pid = cmd.Process.Pid
-	} else {
-		l.pid = <-ll.Pid()
-		if ll.Err() != "" {
-			return "", errors.New(ll.Err())
-		}
-	}
+	l.pid = cmd.Process.Pid
 
 	go func() {
 		_ = cmd.Wait()
 		close(l.exit)
 	}()
 
-	u, err := l.getURL()
+	u, err = l.getURL()
 	if err != nil {
 		l.Kill()
 		return "", err

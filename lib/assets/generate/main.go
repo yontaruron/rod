@@ -4,7 +4,7 @@ package main
 import (
 	"path/filepath"
 
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 var slash = filepath.FromSlash

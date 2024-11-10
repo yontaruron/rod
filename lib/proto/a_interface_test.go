@@ -6,8 +6,8 @@ import (
 	"errors"
 	"reflect"
 
-	"github.com/go-rod/rod/lib/proto"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/proto"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 type Client struct {

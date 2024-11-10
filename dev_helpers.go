@@ -13,10 +13,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/go-rod/rod/lib/assets"
-	"github.com/go-rod/rod/lib/js"
-	"github.com/go-rod/rod/lib/proto"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/assets"
+	"github.com/yontaruron/rod/lib/js"
+	"github.com/yontaruron/rod/lib/proto"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 // TraceType for logger.

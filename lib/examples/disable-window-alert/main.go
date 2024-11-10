@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 func main() {

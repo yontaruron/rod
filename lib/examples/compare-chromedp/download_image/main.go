@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/go-rod/rod"
+	"github.com/yontaruron/rod"
 )
 
 func main() {

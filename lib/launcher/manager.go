@@ -9,9 +9,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/go-rod/rod/lib/cdp"
-	"github.com/go-rod/rod/lib/launcher/flags"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/cdp"
+	"github.com/yontaruron/rod/lib/launcher/flags"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 const (
@@ -181,7 +181,7 @@ func (m *Manager) launch(w http.ResponseWriter, r *http.Request) {
 
 	// Always enable leakless so that if the Manager process crashes
 	// all the managed browsers will be killed.
-	u := l.Leakless(true).MustLaunch()
+	u := l.Leakless(false).MustLaunch()
 	defer m.cleanup(l, kill)
 
 	parsedURL, err := url.Parse(u)

@@ -10,10 +10,10 @@ import (
 	"testing"
 	"time"
 
-	"github.com/go-rod/rod/lib/cdp"
-	"github.com/go-rod/rod/lib/defaults"
-	"github.com/go-rod/rod/lib/launcher/flags"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/cdp"
+	"github.com/yontaruron/rod/lib/defaults"
+	"github.com/yontaruron/rod/lib/launcher/flags"
+	"github.com/yontaruron/rod/lib/utils"
 	"github.com/ysmood/got"
 )
 

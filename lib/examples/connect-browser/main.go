@@ -4,8 +4,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/launcher"
+	"github.com/yontaruron/rod"
+	"github.com/yontaruron/rod/lib/launcher"
 )
 
 // To manually launch a browser.
@@ -16,7 +16,7 @@ func main() {
 	//
 	// Or use docker:
 	//
-	//     docker run -p 9222:9222 ghcr.io/go-rod/rod chrome --headless --no-sandbox --remote-debugging-port=9222 --remote-debugging-address=0.0.0.0
+	//     docker run -p 9222:9222 ghcr.io/yontaruron/rod chrome --headless --no-sandbox --remote-debugging-port=9222 --remote-debugging-address=0.0.0.0
 	//
 	u := launcher.MustResolveURL("")
 

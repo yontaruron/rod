@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/utils"
 	"github.com/ysmood/gson"
 )
 
@@ -23,7 +23,7 @@ func checkVersion(body string) error {
 }
 
 func currentVer() string {
-	q := req("/repos/go-rod/rod/tags?per_page=1")
+	q := req("/repos/yontaruron/rod/tags?per_page=1")
 	res, err := http.DefaultClient.Do(q)
 	utils.E(err)
 	defer func() { _ = res.Body.Close() }()

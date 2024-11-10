@@ -11,7 +11,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 func main() {
@@ -100,10 +100,10 @@ func description(dev bool) string {
 		f = "dev." + f
 	}
 
-	return `--label=org.opencontainers.image.description=https://github.com/go-rod/rod/blob/` + headSha + "/lib/docker/" + f
+	return `--label=org.opencontainers.image.description=https://github.com/yontaruron/rod/blob/` + headSha + "/lib/docker/" + f
 }
 
-const registry = "ghcr.io/go-rod/rod"
+const registry = "ghcr.io/yontaruron/rod"
 
 type archType int
 

@@ -4,10 +4,9 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/launcher"
-	"github.com/go-rod/rod/lib/utils"
-	"github.com/ysmood/leakless"
+	"github.com/yontaruron/rod"
+	"github.com/yontaruron/rod/lib/launcher"
+	"github.com/yontaruron/rod/lib/utils"
 )
 
 func Example_use_system_browser() {
@@ -31,11 +30,8 @@ func Example_custom_launch() {
 	args := launcher.New().FormatArgs()
 
 	var cmd *exec.Cmd
-	if true { // decide whether to use leakless or not
-		cmd = leakless.New().Command(path, args...)
-	} else {
-		cmd = exec.Command(path, args...)
-	}
+
+	cmd = exec.Command(path, args...)
 
 	parser := launcher.NewURLParser()
 	cmd.Stderr = parser

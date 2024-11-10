@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/go-rod/rod"
-	"github.com/go-rod/rod/lib/launcher"
-	"github.com/go-rod/rod/lib/proto"
-	"github.com/go-rod/rod/lib/utils"
+	"github.com/yontaruron/rod"
+	"github.com/yontaruron/rod/lib/launcher"
+	"github.com/yontaruron/rod/lib/proto"
+	"github.com/yontaruron/rod/lib/utils"
 	"github.com/ysmood/gson"
 )
 
